@@ -43,7 +43,7 @@ const Index = () => {
   };
 
   const deleteTodo = async (id) => {
-    const res = await fetch(`${API_URL}/todos/${id}`, {
+    const res = await fetch(`${API_URL}/todos/${id.toString()}`, {
       method: "DELETE",
     });
 
