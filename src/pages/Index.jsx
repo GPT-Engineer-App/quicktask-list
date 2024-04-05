@@ -68,9 +68,9 @@ const Index = () => {
               <Text>{todo.description}</Text>
             </Box>
             <Spacer />
-            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo.id)} />
+            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo._id)} />
             <Spacer />
-            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo.id)} />
+            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo._id)} />
           </HStack>
         ))}
       </VStack>
