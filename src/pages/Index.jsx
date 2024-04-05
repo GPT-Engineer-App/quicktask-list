@@ -43,11 +43,19 @@ const Index = () => {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`${API_URL}/todos/${id}`, {
+    const res = await fetch(`${API_URL}/todos/${id}`, {
       method: "DELETE",
     });
 
-    fetchTodos();
+    if (res.ok) {
+      fetchTodos();
+      toast({
+        title: "Todo deleted.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -68,9 +76,7 @@ const Index = () => {
               <Text>{todo.description}</Text>
             </Box>
             <Spacer />
-            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo._id)} />
-            <Spacer />
-            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo._id)} />
+            <IconButton icon={<FaTrash />} onClick={() => deleteTodo(todo.id)} />
           </HStack>
         ))}
       </VStack>
